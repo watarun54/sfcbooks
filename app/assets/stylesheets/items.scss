@@ -1,3 +1,7 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#items-index {
+  #items-search-box {
+    border-radius: 33px;
+    max-width: 600px;
+    height: 50px;
+  }
+}
