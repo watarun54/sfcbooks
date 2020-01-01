@@ -5,7 +5,7 @@
   border-radius: 25px;
   text-decoration: none;
   color: #FFF;
-  background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+  background-image: $background-image;
   transition: .4s;
   
   &:hover {
@@ -21,4 +21,12 @@
 
 .bg-custom-btn {
   @include custom-button(25px 73px, 30px);
+}
+
+.normal-color-text {
+  color: $normal-text-color;
+}
+
+.accent-color-text {
+  color: $accent-color;
 }

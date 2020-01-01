@@ -1,0 +1,52 @@
+<div class="container my-5">
+  <h2 class="mb-4"><span class="accent-color-text"><%= @item.status %></span>｜<%= @item.title %></h2>
+
+  <div class="row">
+    <div class="col-sm-6 col-md-4 mb-5">
+      <div class="card">
+        <%= image_tag("cat.jpg", class: "card-img-top") %>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-4 mb-5">
+      <div class="card">
+        <%= image_tag("cat.jpg", class: "card-img-top") %>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-4 mb-5">
+      <div class="card">
+        <%= image_tag("cat.jpg", class: "card-img-top") %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-7 pb-5">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th scope="row" class="accent-color-text">価格</th>
+            <td><%= @item.price %>円</td>
+          </tr>
+          <tr>
+            <th scope="row" class="accent-color-text">講義名</th>
+            <td><%= @item.lecture %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="accent-color-text">講師名</th>
+            <td><%= @item.teacher %></td>
+          </tr>
+          <tr>
+            <th scope="row" class="accent-color-text">メモ</th>
+            <td><%= @item.memo %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-5 text-center pb-5">
+      <%= link_to "Contact", "#", class: "bg-custom-btn" %>
+    </div>
+  </div>
+</div>
