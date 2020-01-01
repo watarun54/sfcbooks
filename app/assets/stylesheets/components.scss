@@ -1,0 +1,24 @@
+@mixin custom-button($padding:7px 43px, $font-size:18px) {
+  display: inline-block;
+  font-size: $font-size;
+  padding: $padding;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #FFF;
+  background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+  transition: .4s;
+  
+  &:hover {
+    color: #FFF;
+    text-decoration: none;
+    background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
+  }
+}
+
+.sm-custom-btn {
+  @include custom-button(7px 43px, 18px);
+}
+
+.bg-custom-btn {
+  @include custom-button(25px 73px, 30px);
+}
