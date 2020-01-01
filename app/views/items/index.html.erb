@@ -1,6 +1,6 @@
 <div id="items-index" class="container my-5">
   <div class="row">
-    <div class="col">
+    <div class="col-12">
       <form class="text-center">
         <div class="form-group">
           <input type="search" id="items-search-box" class="form-control mx-auto" placeholder="検索..." aria-label="検索...">
@@ -12,14 +12,12 @@
     </div>
   </div>
 
-  <div class="row my-5">
-    <div class="row">
-      <% @items.each do |item| %>
-      <div class="col-sm-6 col-md-4">
-        <%= render("item", item: item) %>
-      </div>
-      <% end %>
+  <div class="row mt-5">
+    <% @items.each do |item| %>
+    <div class="col-sm-6 col-md-4 mb-5">
+      <%= render("item", item: item) %>
     </div>
+    <% end %>
   </div>
 
 </div>

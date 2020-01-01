@@ -1,3 +1,16 @@
-.navbar-light .navbar-toggler {
-  border-color: rgba(0,0,0,0);
+.navbar-light {
+  background-color: $main-color;
+
+  .title {
+    font-size: 20px;
+  }
+
+  a {
+    color: $base-color;
+    text-decoration: none;
+  }
+
+  button.navbar-toggler {
+    border-color: rgba(0,0,0,0) !important;
+  }
 }
