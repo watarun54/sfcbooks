@@ -1,0 +1,15 @@
+current directory: /Users/User/Desktop/portfolio/sfcbooks/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/User/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20200101-94147-199062o.rb extconf.rb
+creating Makefile
+
+current directory: /Users/User/Desktop/portfolio/sfcbooks/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/User/Desktop/portfolio/sfcbooks/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/User/Desktop/portfolio/sfcbooks/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20200101-94147-5g4kyj/skiptrace/internal
