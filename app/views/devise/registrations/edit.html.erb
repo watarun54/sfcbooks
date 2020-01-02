@@ -3,6 +3,7 @@
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
+    <%= render "devise/shared/flash_messages" %>
 
     <div class="form-group row">
       <%= f.label :name, class: "col-sm-3 col-form-label" %>
@@ -52,6 +53,4 @@
   <% end %>
 
   <%= link_to "Cancel my account", registration_path(resource_name), class: "sm-custom-btn mb-4", data: { confirm: "Are you sure?" }, method: :delete %><br />
-
-  <%= link_to "Back", :back, class: "sm-custom-btn" %>
 </div>
