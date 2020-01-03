@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  belongs_to :user
+
   validates :title, presence: true, length: { maximum: 50 }
   validates :status, presence: true, length: { maximum: 50 }
   validates :price, presence: true, numericality: { only_integer: true, less_than: 100_000 }

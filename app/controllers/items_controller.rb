@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.all
@@ -13,7 +14,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = current_user.items.new(item_params)
 
     respond_to do |format|
       if @item.save
@@ -41,6 +42,18 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @item.destroy
+    respond_to do |format|
+      format.html { redirect_to manage_items_path, notice: 'Item was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def manage
+    @items = current_user.items
+  end
+
   private
 
   def set_item
@@ -48,6 +61,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:title, :status, :price, :lecture, :teacher, :memo)
+    params.require(:item).permit(:title, :status, :price, :lecture, :teacher, :memo, :user_id)
   end
 end
