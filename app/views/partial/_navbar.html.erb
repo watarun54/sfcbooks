@@ -8,6 +8,9 @@
     <ul class="navbar-nav ml-auto mb-3 mb-lg-0">
     <% if user_signed_in? %>
       <li class="nav-item mt-3 mt-lg-0">
+        <%= link_to '出品する', new_item_path, class: "mr-3" %>
+      </li>
+      <li class="nav-item mt-3 mt-lg-0">
         <%= link_to 'プロフィール変更', edit_user_registration_path, class: "mr-3" %>
       </li>
       <li class="nav-item mt-3 mt-lg-0">
