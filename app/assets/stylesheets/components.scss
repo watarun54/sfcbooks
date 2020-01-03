@@ -69,6 +69,11 @@
 }
 
 .custom-table {
+  h2 {
+    color: $normal-text-color;
+    margin-bottom: 36px;
+  }
+
   a {
     color: $main-color;
   }
