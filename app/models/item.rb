@@ -8,4 +8,8 @@ class Item < ApplicationRecord
   validates :lecture, length: { maximum: 50 }
   validates :teacher, length: { maximum: 50 }
   validates :memo, length: { maximum: 500 }
+
+  def on_sale?
+    self.status == ITEM_STATUS_SELL
+  end
 end
