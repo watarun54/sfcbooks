@@ -1,5 +1,5 @@
 <div class="container my-4 my-sm-5">
-  <h2 class="mb-4"><span class="accent-color-text"><%= @item.status %></span>｜<%= @item.title %></h2>
+  <h2 class="mb-4"><span class="accent-color-text"><%= ITEM_STATUS_HASH[@item.status] %></span>｜<%= @item.title %></h2>
 
   <div class="row">
     <div class="col-sm-6 col-md-4 mb-5">
