@@ -1,5 +1,15 @@
-<div class="container my-5">
+<div id="rooms-show" class="container custom-form my-5">
   <h2>Message Room</h2>
-  <p>host: <%= @host_user.name %></p>
-  <p>guest: <%= @guest_user.name %></p>
+  <p>
+    【Host】<span class="user-name"><%= @host_user.name %></span>
+    【Guest】<span class="user-name"><%= @guest_user.name %></span>
+  </p>
+
+  <div class="messages-container mb-5">
+  <% @messages.each do |message| %>
+    <%= render("rooms/partial/card", message: message) %>
+  <% end %>
+  </div>
+
+  <%= render("rooms/partial/form", message: @message, room: @room) %>
 </div>

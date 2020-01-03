@@ -5,6 +5,8 @@ class RoomsController < ApplicationController
   def show
     @host_user = User.find(@room.host_user_id)
     @guest_user = User.find(@room.guest_user_id)
+    @message = Message.new
+    @messages = Message.where(user_id: [@host_user.id, @guest_user.id])
   end
 
   def create

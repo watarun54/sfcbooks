@@ -1,0 +1,12 @@
+<%= form_for(message, class: "form-inline") do |f| %>
+  <%= render "devise/shared/error_messages", resource: message %>
+
+  <div class="form-group">
+    <%= f.text_area :content, class: "form-control", autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.hidden_field :room_id, value: room.id %>
+    <%= f.submit "送信" %>
+  </div>
+<% end %>

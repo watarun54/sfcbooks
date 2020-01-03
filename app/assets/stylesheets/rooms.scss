@@ -1,3 +1,29 @@
-// Place all the styles related to the rooms controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#rooms-show {
+  .user-name {
+    color: $accent-color;
+  }
+
+  .messages-container {
+    max-width: 700px;
+
+    .card {
+      margin-bottom: 13px;
+
+      .card-body {
+        padding: 9px;
+
+        .card-title {
+          color: $accent-color;
+        }
+      }
+    }
+  }
+
+  textarea {
+    max-width: 700px;
+  }
+
+  input {
+    margin: 11px 0;
+  }
+}
