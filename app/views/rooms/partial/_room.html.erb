@@ -1,0 +1,6 @@
+<tr>
+  <td><%= link_to room.item.title, room.item %></td>
+  <td><%= host_or_guest?(room) %></td>
+  <td><%= link_to "Link", room %></td>
+  <td><%= room.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+</tr>

@@ -6,7 +6,7 @@
   </p>
 
   <div class="messages-container mb-5">
-  <% @messages.each do |message| %>
+  <% @messages.includes(:user).each do |message| %>
     <%= render("rooms/partial/card", message: message) %>
   <% end %>
   </div>
