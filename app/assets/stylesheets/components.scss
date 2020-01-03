@@ -30,3 +30,44 @@
 .accent-color-text {
   color: $accent-color;
 }
+
+.custom-form {
+  h2 {
+    color: $normal-text-color;
+    margin-bottom: 36px;
+  }
+
+  label {
+    color: $accent-color;
+  }
+
+  input {
+    border-radius: 15px;
+    max-width: 400px;
+    height: 38px;
+    border: 2px solid $main-color;
+  }
+
+  em {
+    color: $main-color;
+    margin-left: 10px;
+  }
+
+  .actions input {
+    @include custom-button(0px, 18px);
+    height: 43px;
+    width: 135px;
+    margin: 21px 0;
+  }
+}
+
+.alert {
+  padding-top: 18px;
+  padding-bottom: 0;
+  margin-bottom: 36px;
+
+  ul {
+    list-style: none;
+    padding-left: 3px;
+  }
+}
