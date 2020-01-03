@@ -1,0 +1,53 @@
+<div class="container custom-form my-5">
+  <h2>アイテムの情報を入力</h2>
+
+  <%= form_for(@item, class: "form-inline") do |f| %>
+    <%= render "devise/shared/error_messages", resource: @item %>
+
+    <div class="form-group row">
+      <%= f.label :title, class: "col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= f.text_field :title, class: "form-control", autofocus: true %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :status, class: "col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= f.text_field :status, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :price, class: "col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= f.text_field :price, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :lecture, class: "col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= f.text_field :lecture, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :teacher, class: "col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= f.text_field :teacher, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :memo, class: "col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= f.text_area :memo, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "出品" %>
+    </div>
+  <% end %>
+</div>
