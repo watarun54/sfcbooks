@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.all
@@ -40,6 +40,18 @@ class ItemsController < ApplicationController
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def destroy
+    @item.destroy
+    respond_to do |format|
+      format.html { redirect_to manage_items_path, notice: 'Item was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def manage
+    @items = current_user.items
   end
 
   private
