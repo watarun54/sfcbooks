@@ -10,22 +10,26 @@
     color: $normal-text-color;
     text-decoration: none;
 
-    .thumb-img {
-      position: relative;
-      overflow: hidden;
-      padding-bottom: 100%;
+    .card {
+      background-color: $background-color;
 
-      img {
-        position: absolute;
+      .thumb-img {
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 100%;
+
+        img {
+          position: absolute;
+        }
       }
-    }
 
-    .card-title {
-      margin: 5px 3px;
-    }
+      .card-title {
+        margin: 5px 3px;
+      }
 
-    .card-text {
-      margin-bottom: 11px;
+      .card-text {
+        margin-bottom: 11px;
+      }
     }
   }
 }
