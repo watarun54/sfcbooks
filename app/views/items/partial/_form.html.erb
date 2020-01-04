@@ -9,6 +9,15 @@
   </div>
 
   <div class="form-group row">
+    <%= f.label "Images", class: "col-sm-3 col-form-label" %>
+    <div class="col-sm-9">
+    <%= f.fields_for :images do |image| %>
+      <%= image.file_field :path %><br />
+    <% end %>
+    </div>
+  </div>
+
+  <div class="form-group row">
     <%= f.label :status, class: "col-sm-3 col-form-label" %>
     <div class="col-sm-9">
       <%= f.select :status, ITEM_STATUS_HASH.invert, {}, {class: "form-control"} %>

@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    3.times { @item.images.build }
   end
 
   def create
@@ -61,6 +62,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:title, :status, :price, :lecture, :teacher, :memo, :user_id)
+    params.require(:item).permit(:title, :status, :price, :lecture, :teacher, :memo, :user_id, images_attributes: [:path])
   end
 end

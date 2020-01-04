@@ -21,23 +21,13 @@
   </div>
 
   <div class="row">
+  <% @item.images.each do |img| %>
     <div class="col-sm-6 col-md-4 mb-5">
       <div class="card">
-        <%= image_tag("cat.jpg", class: "card-img-top") %>
+        <%= image_tag(img.path.url, class: "card-img-top") %>
       </div>
     </div>
-
-    <div class="col-sm-6 col-md-4 mb-5">
-      <div class="card">
-        <%= image_tag("cat.jpg", class: "card-img-top") %>
-      </div>
-    </div>
-
-    <div class="col-sm-6 col-md-4 mb-5">
-      <div class="card">
-        <%= image_tag("cat.jpg", class: "card-img-top") %>
-      </div>
-    </div>
+  <% end %>
   </div>
 
   <div class="row">
