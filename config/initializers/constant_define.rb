@@ -7,3 +7,5 @@ ITEM_STATUS_HASH = {
   ITEM_STATUS_SOLD  => '成約済み',
   ITEM_STATUS_STOP  => '出品停止',
 }
+
+IMAGES_NUM = 3

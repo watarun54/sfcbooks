@@ -1,10 +1,35 @@
 <%= form_for(item, class: "form-inline") do |f| %>
   <%= render "devise/shared/error_messages", resource: item %>
 
+  <div class="form-group row mb-0">
+    <% if params[:action] == "edit" || "update" %>
+    <div class="col-12 row">
+      <% item.images.each_with_index do |img, idx| %>
+        <div class="col-sm-6 col-md-4 mb-5">
+          <p class="rm-img-check-box"><%= check_box_tag "remove_img_#{idx}", img.id %>削除する</p>
+          <div class="card">
+            <%= image_tag(img.path.url, class: "card-img-top") %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <% end %>
+    <% if @item.images.size < IMAGES_NUM %>
+      <%= f.label "Images（#{IMAGES_NUM}枚まで）", class: "col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+      <% @images[0..(IMAGES_NUM - @item.images.size - 1)].each_with_index do |image, idx| %>
+        <%= f.fields_for :images do |img| %>
+          <%= img.file_field "img_#{idx}", class: "form-control input-image" %>
+        <% end %>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+
   <div class="form-group row">
     <%= f.label :title, class: "col-sm-3 col-form-label" %>
     <div class="col-sm-9">
-      <%= f.text_field :title, class: "form-control", autofocus: true %>
+      <%= f.text_field :title, class: "form-control" %>
     </div>
   </div>
 

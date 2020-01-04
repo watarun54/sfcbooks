@@ -14,7 +14,7 @@
   </div>
 
   <div class="row mt-5">
-    <% @items.each do |item| %>
+    <% @items.includes(:images).each do |item| %>
     <div class="col-sm-6 col-md-4 mb-5">
       <%= render("items/partial/item", item: item) %>
     </div>

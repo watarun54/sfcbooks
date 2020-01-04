@@ -1,9 +1,18 @@
 <%= link_to(item, class: "item-container") do %>
 <div class="card">
-  <%= image_tag("cat.jpg", class: "card-img-top") %>
+  <div class="thumb-img">
+  <% if item.images.size > 0 %>
+    <%= image_tag(item.images.first.path.url, class: "card-img-top") %>
+  <% else %>
+    <%= image_tag("no-image", class: "card-img-top") %>
+  <% end %>
+  </div>
   <div class="card-body p-3">
-    <h5 class="card-title"><span class="accent-color-text"><%= ITEM_STATUS_HASH[item.status] %></span>｜<%= item.title %></h5>
-    <p class="card-text"><%= item.memo %></p>
+    <p class="card-text">
+      <span class="badge badge-info"><%= ITEM_STATUS_HASH[item.status] %></span>
+      <span class="badge badge-success"><%= item.price %> 円</span>
+    </p>
+    <h5 class="card-title"><%= item.title %></h5>
 
   </div>
 </div>
