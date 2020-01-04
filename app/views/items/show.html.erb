@@ -64,8 +64,10 @@
       </table>
     </div>
 
+    <% if @item.user != current_user && @item.on_sale? %>
     <div class="col-md-5 text-center pb-5">
-      <%= link_to "Contact", "#", class: "bg-custom-btn" %>
+      <%= link_to "Contact", rooms_path(params: {item_id: @item.id}), class: "bg-custom-btn", method: :post %>
     </div>
+    <% end %>
   </div>
 </div>

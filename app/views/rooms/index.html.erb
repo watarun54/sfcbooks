@@ -1,0 +1,23 @@
+<div class="container my-5 custom-table">
+  <h2>メッセージ管理</h2>
+
+  <div class="table-responsive">
+    <table class="table text-nowrap">
+      <thead>
+        <tr>
+          <th scope="col">Item</th>
+          <th scope="col">Status</th>
+          <th scope="col">メッセージ数</th>
+          <th scope="col">Room Link</th>
+          <th scope="col">開始日</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @rooms.includes(:item, :messages).each do |room| %>
+        <%= render("rooms/partial/room", room: room) %>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>

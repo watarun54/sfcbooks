@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :user
+  has_many :rooms, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :status, presence: true, length: { maximum: 50 }
@@ -7,4 +8,8 @@ class Item < ApplicationRecord
   validates :lecture, length: { maximum: 50 }
   validates :teacher, length: { maximum: 50 }
   validates :memo, length: { maximum: 500 }
+
+  def on_sale?
+    self.status == ITEM_STATUS_SELL
+  end
 end
