@@ -1,19 +1,20 @@
 <div id="items-index" class="container my-5">
-  <div class="row">
+  <div class="row mb-5">
     <div class="col-12">
 
-      <form class="text-center">
+      <%= form_tag search_items_path, class: "text-center" do %>
         <div class="form-group">
-          <input type="search" id="items-search-box" class="form-control mx-auto" placeholder="検索..." aria-label="検索...">
+          <%= text_field_tag :search, '', id: "items-search-box", class: "form-control mx-auto", placeholder: "検索..." %>
         </div>
-        <div class="mt-4">
-          <%= link_to "さがす", "#", class: "sm-custom-btn" %>
+        <div class="actions mt-4">
+          <%= submit_tag "さがす", class: "sm-custom-btn" %>
         </div>
-      </form>
+      <% end %>
     </div>
   </div>
 
-  <div class="row mt-5">
+  <p class="mb-4 normal-color-text"><%= "キーワード：「 #{@query} 」での検索結果" if @query %></p>
+  <div class="row">
     <% @items.includes(:images).each do |item| %>
     <div class="col-sm-6 col-md-4 mb-5">
       <%= render("items/partial/item", item: item) %>
