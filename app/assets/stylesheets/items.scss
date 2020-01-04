@@ -6,6 +6,12 @@
     border: 3px solid $main-color;
   }
 
+  .actions {
+    input {
+      border: none;
+    }
+  }
+
   .item-container {
     color: $normal-text-color;
     text-decoration: none;

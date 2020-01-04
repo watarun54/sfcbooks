@@ -10,6 +10,14 @@ class Item < ApplicationRecord
   validates :teacher, length: { maximum: 50 }
   validates :memo, length: { maximum: 500 }
 
+  def self.search(search)
+    return Item.all unless search
+    Item.where([
+      'title LIKE ? OR lecture LIKE ? OR teacher LIKE ? OR memo LIKE ?',
+      "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"
+    ])
+  end
+
   def on_sale?
     self.status == ITEM_STATUS_SELL
   end

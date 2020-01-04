@@ -59,6 +59,16 @@ class ItemsController < ApplicationController
     @items = current_user.items
   end
 
+  def search
+    @query = params[:search].strip
+    if @query.present?
+      @items = Item.search(@query)
+      render :index
+    else
+      redirect_to root_path
+    end
+  end
+
   private
 
   def set_item
