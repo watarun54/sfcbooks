@@ -3,8 +3,6 @@ class Item < ApplicationRecord
   has_many :rooms, dependent: :destroy
   has_many :images, dependent: :destroy
 
-  accepts_nested_attributes_for :images
-
   validates :title, presence: true, length: { maximum: 50 }
   validates :status, presence: true, length: { maximum: 50 }
   validates :price, presence: true, numericality: { only_integer: true, less_than: 100_000 }

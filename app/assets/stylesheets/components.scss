@@ -66,6 +66,20 @@
     width: 135px;
     margin: 21px 0;
   }
+
+  input.input-image {
+    height: 45px;
+    margin-bottom: 16px;
+  }
+
+  .rm-img-check-box {
+    margin-bottom: 8px;
+
+    input {
+      height: 15px;
+      margin-right: 6px;
+    }
+  }
 }
 
 .custom-table {

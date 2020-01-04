@@ -11,14 +11,15 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    3.times { @item.images.build }
+    @images = build_images
   end
 
   def create
+    @images = build_images
     @item = current_user.items.new(item_params)
 
     respond_to do |format|
-      if @item.save
+      if @item.save && update_images(@images)
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
@@ -29,11 +30,14 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @images = build_images
   end
 
   def update
+    @images = build_images
+
     respond_to do |format|
-      if @item.update(item_params)
+      if @item.update(item_params) && update_images(@images)
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @item }
       else
@@ -62,6 +66,33 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:title, :status, :price, :lecture, :teacher, :memo, :user_id, images_attributes: [:path])
+    params.require(:item).permit(:title, :status, :price, :lecture, :teacher, :memo, :user_id)
+  end
+
+  def build_images
+    if params[:item].nil? || params[:item][:images].nil?
+      Array.new(IMAGES_NUM, Image.new)
+    else
+      [
+        Image.new(path: params[:item][:images][:img_0]),
+        Image.new(path: params[:item][:images][:img_1]),
+        Image.new(path: params[:item][:images][:img_2])
+      ]
+    end
+  end
+
+  def update_images(images)
+    images.each_with_index do |img, idx|
+      img.item_id = @item.id
+      img.save! if params[:item][:images].present? && params[:item][:images]["img_#{idx}"].present?
+    end
+
+    Image.find(params[:remove_img_0]).destroy! if params[:remove_img_0].present?
+    Image.find(params[:remove_img_1]).destroy! if params[:remove_img_1].present?
+    Image.find(params[:remove_img_2]).destroy! if params[:remove_img_2].present?
+    true
+  rescue => e
+    @item.errors.add(:images, e.message)
+    false
   end
 end
