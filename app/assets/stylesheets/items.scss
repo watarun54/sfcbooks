@@ -9,10 +9,44 @@
   .item-container {
     color: $normal-text-color;
     text-decoration: none;
+
+    .thumb-img {
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 100%;
+
+      img {
+        position: absolute;
+      }
+    }
+
+    .card-title {
+      margin: 5px 3px;
+    }
+
+    .card-text {
+      margin-bottom: 11px;
+    }
   }
 }
 
 #items-show {
+  .item-title {
+    h2 {
+      margin-left: 4px;
+    }
+
+    span {
+      position: relative;
+      top: 2px;
+      color: $accent-color;
+      border: 2px solid $main-color;
+      padding: 6px;
+      font-size: 23px;
+      margin-right: 18px;
+    }
+  }
+
   .text-right {
     .sm-custom-btn {
       margin-top: 1px;

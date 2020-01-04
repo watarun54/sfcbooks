@@ -1,23 +1,12 @@
 <div id="items-show" class="container my-4 my-sm-5">
-  <div class="row">
-  <% if @item.user == current_user %>
-    <div class="col-md-9 mb-4">
-      <h2 class="mb-0">
-        <span class="accent-color-text"><%= ITEM_STATUS_HASH[@item.status] %></span>
-        ｜<%= @item.title %>
-      </h2>
-    </div>
-    <div class="col-md-3 text-md-right mb-4">
-      <%= link_to "編集", edit_item_path(@item), class: "sm-custom-btn" %>
-    </div>
-  <% else %>
+  <div class="row item-title">
     <div class="col-12 mb-4">
-      <h2 class="mb-0">
+      <p class="mb-4">
         <span class="accent-color-text"><%= ITEM_STATUS_HASH[@item.status] %></span>
-        ｜<%= @item.title %>
-      </h2>
+        <%= link_to "編集", edit_item_path(@item), class: "sm-custom-btn" if @item.user == current_user %>
+      </p>
+      <h2 class="mb-0"><%= @item.title %></h2>
     </div>
-  <% end %>
   </div>
 
   <div class="row">
@@ -25,6 +14,13 @@
     <div class="col-sm-6 col-md-4 mb-5">
       <div class="card">
         <%= image_tag(img.path.url, class: "card-img-top") %>
+      </div>
+    </div>
+  <% end %>
+  <% (IMAGES_NUM - @item.images.size).times do %>
+    <div class="col-sm-6 col-md-4 mb-5">
+      <div class="card">
+        <%= image_tag("no-image", class: "card-img-top") %>
       </div>
     </div>
   <% end %>
