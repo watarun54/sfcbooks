@@ -3,6 +3,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
+  def size_range
+    1..5.megabytes
+  end
+
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
