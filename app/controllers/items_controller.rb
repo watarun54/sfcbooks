@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.all
+    @items = Item.page(params[:page]).per(ITEMS_PER)
   end
 
   def show
@@ -56,13 +56,13 @@ class ItemsController < ApplicationController
   end
 
   def manage
-    @items = current_user.items
+    @items = current_user.items.page(params[:page]).per(TABLE_PER)
   end
 
   def search
     @query = params[:search].strip
     if @query.present?
-      @items = Item.search(@query)
+      @items = Item.search(@query).page(params[:page]).per(ITEMS_PER)
       render :index
     else
       redirect_to root_path

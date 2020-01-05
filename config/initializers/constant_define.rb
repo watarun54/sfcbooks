@@ -9,3 +9,7 @@ ITEM_STATUS_HASH = {
 }
 
 IMAGES_NUM = 3
+
+# kaminari per page
+ITEMS_PER = 15
+TABLE_PER = 15

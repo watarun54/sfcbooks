@@ -4,7 +4,7 @@ class RoomsController < ApplicationController
   before_action :authenticate_user_for_rooms!, only: [:show]
 
   def index
-    @rooms = Room.rooms_of(current_user.id)
+    @rooms = Room.rooms_of(current_user.id).page(params[:page]).per(TABLE_PER)
   end
 
   def show
