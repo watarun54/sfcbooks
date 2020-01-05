@@ -2,7 +2,7 @@
   <div class="row mb-5">
     <div class="col-12">
 
-      <%= form_tag search_items_path, class: "text-center" do %>
+      <%= form_tag search_items_path, method: "get", class: "text-center" do %>
         <div class="form-group">
           <%= text_field_tag :search, '', id: "items-search-box", class: "form-control mx-auto", placeholder: "検索..." %>
         </div>
@@ -22,4 +22,5 @@
     <% end %>
   </div>
 
+  <%= render "partial/pagination", models: @items %>
 </div>

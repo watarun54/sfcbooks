@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :items do
     collection do
       get :manage
-      post :search
+      get :search
     end
   end
 

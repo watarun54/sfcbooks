@@ -103,3 +103,21 @@
     padding-left: 3px;
   }
 }
+
+.pagination-container {
+  .pagination {
+    justify-content: center;
+
+    .page-item {
+      .page-link {
+        color: $main-color;
+      }
+      
+      &.active .page-link {
+        background-color: $main-color;
+        border-color: $main-color;
+        color: $base-color;
+      }
+    }
+  }
+}
