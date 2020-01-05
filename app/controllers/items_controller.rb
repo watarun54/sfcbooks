@@ -60,10 +60,20 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @query = params[:search].split(/[[:blank:]]+/).reject(&:blank?)
+    @search_params = params[:search]
+    @status_params = params[:status]
+    @query = @search_params.split(/[[:blank:]]+/).reject(&:blank?)
 
-    return redirect_to root_path if @query.empty?
-    @items = Item.search(@query).page(params[:page]).per(ITEMS_PER)
+    if @query.present? && @status_params.present?
+      @items = Item.search(@query).sorting_by(@status_params).page(params[:page]).per(ITEMS_PER)
+    elsif @query.present?
+      @items = Item.search(@query).page(params[:page]).per(ITEMS_PER)
+    elsif @status_params.present?
+      @items = Item.sorting_by(@status_params).page(params[:page]).per(ITEMS_PER)
+    else
+      return redirect_to root_path
+    end
+
     @result_count = @items.total_count
     render :index
   end

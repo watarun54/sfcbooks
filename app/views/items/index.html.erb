@@ -2,22 +2,37 @@
   <div class="row mb-5">
     <div class="col-12">
 
-      <%= form_tag search_items_path, method: "get", class: "text-center" do %>
-        <div class="form-group">
-          <%= text_field_tag :search, '', id: "items-search-box", class: "form-control mx-auto", placeholder: "検索..." %>
-        </div>
-        <div class="actions mt-4">
-          <%= submit_tag "さがす", class: "sm-custom-btn" %>
+      <%= form_tag search_items_path, method: :get do %>
+        <div id="items-search-box" class="input-group">
+          <%= text_field_tag :search, '', class: "form-control", placeholder: "検索..." %>
+          <span class="input-group-btn">
+            <%= submit_tag "さがす", class: "btn btn-default" %>
+          </span>
         </div>
       <% end %>
     </div>
   </div>
 
-  <div class="mb-4 search-result">
-  <% if @query.present? %>
-    <p class="normal-color-text mb-2">キーワード：「 <%= @query.join(" ") %> 」での検索結果</p>
-    <p><span class="result-count"><%= @result_count %></span>件ヒットしました。</p>
-  <% end %>
+  <div class="row mb-3 mb-sm-4">
+    <div class="col-sm-9 search-result">
+    <% if @query.present? %>
+      <p class="normal-color-text mb-2">キーワード：「 <%= @query.join(" ") %> 」での検索結果</p>
+      <p class="mb-0"><span class="result-count"><%= @result_count %></span>件ヒットしました。</p>
+    <% end %>
+    </div>
+
+    <div class="col-sm-3 sort-options">
+    <%= form_tag search_items_path, method: :get, class: "ml-sm-auto" do %>
+      <div class="form-group">
+        <%= select_tag :status,
+                       options_from_collection_for_select(status_options, :first, :last, @status_params),
+                       class: "form-control",
+                       onchange: "submit(this.form)" %>
+      </div>
+      <%= hidden_field_tag :search, @search_params %>
+      <%= submit_tag "", class: "d-none" %>
+    <% end %>
+    </div>
   </div>
 
   <div class="row">

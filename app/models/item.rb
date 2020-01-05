@@ -10,6 +10,8 @@ class Item < ApplicationRecord
   validates :teacher, length: { maximum: 50 }
   validates :memo, length: { maximum: 500 }
 
+  scope :sorting_by, -> (status) { where(status: status) }
+
   def self.search(keywords)
     return Item.all if keywords.empty?
     item_ids = keywords.map { |keyword|
