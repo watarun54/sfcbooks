@@ -13,7 +13,13 @@
     </div>
   </div>
 
-  <p class="mb-4 normal-color-text"><%= "キーワード：「 #{@query} 」での検索結果" if @query %></p>
+  <div class="mb-4 search-result">
+  <% if @query.present? %>
+    <p class="normal-color-text mb-2">キーワード：「 <%= @query.join(" ") %> 」での検索結果</p>
+    <p><span class="result-count"><%= @result_count %></span>件ヒットしました。</p>
+  <% end %>
+  </div>
+
   <div class="row">
     <% @items.includes(:images).each do |item| %>
     <div class="col-sm-6 col-md-4 mb-5">

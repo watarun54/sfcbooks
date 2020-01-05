@@ -10,12 +10,15 @@ class Item < ApplicationRecord
   validates :teacher, length: { maximum: 50 }
   validates :memo, length: { maximum: 500 }
 
-  def self.search(search)
-    return Item.all unless search
-    Item.where([
-      'title LIKE ? OR lecture LIKE ? OR teacher LIKE ? OR memo LIKE ?',
-      "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"
-    ])
+  def self.search(keywords)
+    return Item.all if keywords.empty?
+    item_ids = keywords.map { |keyword|
+                Item.where([
+                  'title LIKE ? OR lecture LIKE ? OR teacher LIKE ? OR memo LIKE ?',
+                  "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"
+                ]).pluck(:id)
+              }.flatten.uniq
+    Item.where(id: item_ids)
   end
 
   def on_sale?

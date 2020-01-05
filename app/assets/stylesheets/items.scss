@@ -12,6 +12,16 @@
     }
   }
 
+  .search-result {
+    color: $normal-text-color;
+
+    .result-count {
+      color: $accent-color;
+      margin-right: 5px;
+      font-size: 24px;
+    }
+  }
+
   .item-container {
     color: $normal-text-color;
     text-decoration: none;

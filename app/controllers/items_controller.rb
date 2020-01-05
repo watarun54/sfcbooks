@@ -60,13 +60,12 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @query = params[:search].strip
-    if @query.present?
-      @items = Item.search(@query).page(params[:page]).per(ITEMS_PER)
-      render :index
-    else
-      redirect_to root_path
-    end
+    @query = params[:search].split(/[[:blank:]]+/).reject(&:blank?)
+
+    return redirect_to root_path if @query.empty?
+    @items = Item.search(@query).page(params[:page]).per(ITEMS_PER)
+    @result_count = @items.total_count
+    render :index
   end
 
   private
