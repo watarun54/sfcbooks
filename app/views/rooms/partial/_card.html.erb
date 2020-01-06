@@ -1,6 +1,10 @@
 <div class="card bg-light">
   <div class="card-body">
-    <h5 class="card-title"><%= message.user.name %></h5>
+    <h5 class="card-title">
+      <span class="badge badge-<%= room.host_user_id == message.user.id ? 'info' : 'success' %>">
+        <%= message.user.name %>
+      </span>
+    </h5>
     <p class="card-text"><%= message.content %></p>
   </div>
 </div>

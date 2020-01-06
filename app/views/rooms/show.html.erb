@@ -1,13 +1,19 @@
 <div id="rooms-show" class="container custom-form my-5">
   <h2>Message Room</h2>
-  <p>
-    【Host】<span class="user-name"><%= @host_user.name %></span>
-    【Guest】<span class="user-name"><%= @guest_user.name %></span>
-  </p>
+
+  <div class="room-info mb-5">
+    <p>【アイテム】<%= link_to @room.item.title, @room.item %></p>
+    <p>
+      【Host】<span class="badge badge-info"><%= @host_user.name %></span><%= @host_user == current_user ? "（あなた）" : "" %>
+    </p>
+    <p>
+      【Guest】<span class="badge badge-success"><%= @guest_user.name %></span><%= @guest_user == current_user ? "（あなた）" : "" %>
+    </p>
+  </div>
 
   <div class="messages-container mb-5">
   <% @messages.includes(:user).each do |message| %>
-    <%= render("rooms/partial/card", message: message) %>
+    <%= render("rooms/partial/card", room: @room, message: message) %>
   <% end %>
   </div>
 

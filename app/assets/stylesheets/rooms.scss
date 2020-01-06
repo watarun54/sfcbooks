@@ -1,6 +1,17 @@
 #rooms-show {
-  .user-name {
-    color: $accent-color;
+  .room-info {
+    span.badge {
+      position: relative;
+      bottom: 2px;
+    }
+
+    span.badge-info{
+      margin-left: 8px;
+    }
+
+    a {
+      color: $main-color;
+    }
   }
 
   .messages-container {
