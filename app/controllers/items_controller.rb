@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.page(params[:page]).per(ITEMS_PER)
+    @items = Item.order(created_at: :desc).page(params[:page]).per(ITEMS_PER)
   end
 
   def show
@@ -65,15 +65,16 @@ class ItemsController < ApplicationController
     @query = @search_params.split(/[[:blank:]]+/).reject(&:blank?)
 
     if @query.present? && @status_params.present?
-      @items = Item.search(@query).sorting_by(@status_params).page(params[:page]).per(ITEMS_PER)
+      @items = Item.search(@query).sorting_by(@status_params)
     elsif @query.present?
-      @items = Item.search(@query).page(params[:page]).per(ITEMS_PER)
+      @items = Item.search(@query)
     elsif @status_params.present?
-      @items = Item.sorting_by(@status_params).page(params[:page]).per(ITEMS_PER)
+      @items = Item.sorting_by(@status_params)
     else
       return redirect_to root_path
     end
 
+    @items = @items.order(created_at: :desc).page(params[:page]).per(ITEMS_PER)
     @result_count = @items.total_count
     render :index
   end
