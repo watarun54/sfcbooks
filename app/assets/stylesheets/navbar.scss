@@ -1,8 +1,10 @@
 .navbar-light {
   background-image: $background-image;
 
-  .title {
-    font-size: 20px;
+  a.title {
+    img.logo {
+      width: 200px;
+    }
   }
 
   a {
