@@ -2,12 +2,12 @@
   <h2>Message Room</h2>
 
   <div class="room-info mb-5">
-    <p>【アイテム】<%= link_to @room.item.title, @room.item %></p>
+    <p>【 アイテム 】<%= link_to @room.item.title, @room.item %></p>
     <p>
-      【Host】<span class="badge badge-info"><%= @host_user.name %></span><%= @host_user == current_user ? "（あなた）" : "" %>
+      【 Host 】<span class="badge badge-info"><%= @host_user.name %></span><%= @host_user == current_user ? "（あなた）" : "" %>
     </p>
     <p>
-      【Guest】<span class="badge badge-success"><%= @guest_user.name %></span><%= @guest_user == current_user ? "（あなた）" : "" %>
+      【 Guest 】<span class="badge badge-success"><%= @guest_user.name %></span><%= @guest_user == current_user ? "（あなた）" : "" %>
     </p>
   </div>
 
