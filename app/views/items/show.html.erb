@@ -3,7 +3,7 @@
     <div class="col-12 mb-4">
       <p class="mb-4">
         <span class="accent-color-text"><%= ITEM_STATUS_HASH[@item.status] %></span>
-        <%= link_to "編集", edit_item_path(@item), class: "sm-custom-btn" if @item.user == current_user %>
+        <%= link_to "編集", edit_item_path(@item), class: "sm-custom-btn shadow" if @item.user == current_user %>
       </p>
       <h2 class="mb-0"><%= @item.title %></h2>
     </div>
@@ -52,7 +52,7 @@
 
     <% if @item.user != current_user && @item.on_sale? %>
     <div class="col-md-5 text-center pb-5">
-      <%= link_to "Contact", rooms_path(params: {item_id: @item.id}), class: "bg-custom-btn", method: :post %>
+      <%= link_to "Contact", rooms_path(params: {item_id: @item.id}), class: "bg-custom-btn shadow", method: :post %>
     </div>
     <% end %>
   </div>
