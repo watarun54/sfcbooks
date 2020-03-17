@@ -18,7 +18,7 @@ jobs:
           name: sleep for waiting launch db
           command: sleep 20
       - run:
-          name: "setup db"
+          name: setup db
           command: docker-compose run web rails db:create db:migrate db:seed
       - run:
           name: bundle exec rspec

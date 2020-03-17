@@ -136,7 +136,7 @@ describe ItemsController do
         expect(assigns(:items)).to match_array [search_item]
       end
       it "assigns @result_count with 1" do
-        expect(assigns(:result_count)).to eq 2
+        expect(assigns(:result_count)).to eq 1
       end
       it "renders the :index template" do
         expect(response).to render_template :index
