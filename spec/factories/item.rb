@@ -6,6 +6,7 @@ FactoryBot.define do
     sequence(:lecture) { |n| "lecture#{n}" }
     sequence(:teacher) { |n| "teacher#{n}" }
     sequence(:memo) { |n| "memo#{n}" }
-    association :user
+
+    user
   end
 end
