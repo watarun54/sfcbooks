@@ -4,6 +4,9 @@ services:
     image: mysql:5.7
     ports:
       - "3306:3306"
+    environment:
+      MYSQL_DATABASE: ${DATABASE_USER}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD}
     volumes:
       - ./mysql/data:/var/lib/mysql
   web:
