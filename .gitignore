@@ -6,6 +6,8 @@
 
 # Ignore bundler config.
 /.bundle
+/vendor/bundle/*
+
 /.env
 
 # Ignore all logfiles and tempfiles.
@@ -28,3 +30,4 @@
 /config/master.key
 
 /public/uploads/*
+/mysql/data/*
