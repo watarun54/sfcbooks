@@ -62,6 +62,8 @@ group :development, :test do
   gem 'rails-controller-testing'
 
   # gem 'rubocop'
+
+  gem 'letter_opener_web', '~> 1.0'
 end
 
 group :development do
