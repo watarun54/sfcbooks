@@ -1,0 +1,33 @@
+version: 2
+jobs:
+  rspec:
+    machine:
+      image: circleci/classic:edge
+    steps:
+      - checkout
+      - run:
+          name: Decode dotenv file
+          command: echo $ENV_FILE | base64 --decode > .env
+      - run:
+          name: docker-compose build
+          command: docker-compose build
+      - run:
+          name: docker-compose up
+          command: docker-compose up -d
+      - run:
+          name: sleep for waiting launch db
+          command: sleep 20
+      - run:
+          name: setup db
+          command: docker-compose run web rails db:create db:migrate db:seed
+      - run:
+          name: bundle exec rspec
+          command: docker-compose run web bundle exec rspec
+      - run:
+          name: docker-compose down
+          command: docker-compose down
+workflows:
+  version: 2
+  workflows:
+    jobs:
+      - rspec
