@@ -20,5 +20,5 @@ Rails.application.routes.draw do
   resources :rooms
   resources :messages
 
-  get '*path', controller: 'application', action: 'render_404'
+  get '*path', controller: 'application', action: 'render_404' if Rails.env.production? || Rails.env.staging?
 end
