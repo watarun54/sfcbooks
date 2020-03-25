@@ -44,7 +44,8 @@ gem 'devise'
 gem 'omniauth'
 
 gem 'carrierwave'  # 画像アップロード用
-gem 'mini_magick'  #画像のリサイズ
+gem 'mini_magick'  # 画像のリサイズ
+gem 'fog'
 
 gem 'kaminari', '~> 0.17.0'
 
