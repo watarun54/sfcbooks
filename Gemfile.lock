@@ -529,7 +529,7 @@ DEPENDENCIES
   pry-byebug
   pry-doc
   pry-rails
-  puma (~> 3.11)
+  puma (~> 3.12.4)
   rails (~> 5.2.4, >= 5.2.4.1)
   rails-controller-testing
   rspec-rails
