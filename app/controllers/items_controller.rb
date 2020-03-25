@@ -56,7 +56,7 @@ class ItemsController < ApplicationController
   end
 
   def manage
-    @items = current_user.items.page(params[:page]).per(TABLE_PER)
+    @items = current_user.items.order(created_at: :desc).page(params[:page]).per(TABLE_PER)
   end
 
   def search
