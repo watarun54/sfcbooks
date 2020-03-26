@@ -2,6 +2,7 @@
   <td width="100" height="100"><%= item_image(room.item) %></td>
   <td><%= link_to room.item.title, room.item %></td>
   <td><%= host_or_guest?(room) %></td>
+  <td><%= room.contain_unread_messages?(current_user) ? "未開封" : "開封済み" %></td>
   <td><%= room.messages.size %></td>
   <td><%= link_to "Link", room %></td>
   <td><%= room.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
