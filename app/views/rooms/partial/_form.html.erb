@@ -7,6 +7,9 @@
 
   <div class="actions">
     <%= f.hidden_field :room_id, value: room.id %>
+    <%= hidden_field_tag :item_id, params[:item_id] %>
+    <%= hidden_field_tag :host_user_id, room.host_user_id %>
+    <%= hidden_field_tag :guest_user_id, room.guest_user_id %>
     <%= f.submit "送信", class: "shadow" %>
   </div>
 <% end %>
