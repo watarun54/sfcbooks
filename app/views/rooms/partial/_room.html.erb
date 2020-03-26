@@ -5,4 +5,7 @@
   <td><%= room.messages.size %></td>
   <td><%= link_to "Link", room %></td>
   <td><%= room.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+  <td>
+    <%= link_to "削除", room, class: "text-danger", data: { confirm: "Are you sure?" }, method: :delete %>
+  </td>
 </tr>
