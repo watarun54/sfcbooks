@@ -113,7 +113,7 @@ class ItemsController < ApplicationController
       true
     end
   rescue => e
-    @item.errors.add(:images, e.message) if e.message.include?("Path File size")
+    @item.errors.add(:images, e.message)
     false
   end
 
