@@ -4,6 +4,12 @@
       <span class="badge badge-<%= room.host_user_id == message.user.id ? 'info' : 'success' %>">
         <%= message.user.name %>
       </span>
+      <span class="text-secondary small">
+        <%= message.is_read ? "既読" : "未読" %>
+      </span>
+      <span class="text-secondary float-right small">
+        <%= message.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
+      </span>
     </h5>
     <p class="card-text"><%= message.content %></p>
   </div>

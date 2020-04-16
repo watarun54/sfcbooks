@@ -10,6 +10,8 @@ class RoomsController < ApplicationController
   def show
     @message = Message.new
     @messages = @room.messages
+
+    read_messages(@messages)
   end
 
   def new
@@ -44,5 +46,11 @@ class RoomsController < ApplicationController
     @host_user = User.find(@room.host_user_id)
     @guest_user = User.find(@room.guest_user_id)
     redirect_to root_path, notice: "You can't enter the room." if current_user != @host_user && current_user != @guest_user
+  end
+
+  def read_messages(messages)
+    messages.each do |m|
+      m.update!(is_read: true) if m.user_id != current_user.id && !m.is_read
+    end
   end
 end
